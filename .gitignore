@@ -1,0 +1,25 @@
+# Original attachments can contain client names or unrelated project content.
+/data/raw/
+/private/
+*.zip
+*.xlsx
+*.xls
+*.pbix
+*.pbit
+*.pdf
+!/dashboards/exports/automobile-dashboard.pdf
+
+# Local credentials, caches, and editor files.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+Thumbs.db
+~$*
+
+# Review any source or dashboard binary before explicitly adding it.
