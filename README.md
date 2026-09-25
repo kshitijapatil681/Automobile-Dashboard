@@ -47,6 +47,7 @@ The audit also found **44 negative delivery charges** and **87 records with sale
 - [Verified data findings](reports/findings.md)
 - [Source inventory and audit](docs/source_audit.md)
 - [Dashboard usage and build notes](dashboards/README.md)
+- [Deploying on Vercel](docs/deployment.md)
 
 ## Reproduce and validate
 
