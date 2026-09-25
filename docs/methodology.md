@@ -15,7 +15,8 @@ The repository separates original inputs from new work. A browser dashboard, dat
 5. Compare the export with all retained workbook cells and calculate the documented checks independently from the source.
 6. Provide a standard-library validator that reproduces the public CSV checks.
 7. Build a standalone HTML dashboard from the CSV, with year/country/make filters, grouped charts, summary cards, selected-data export, and a printable snapshot.
-8. Test the embedded data and filtered totals against the source workbook. Check empty selections, reset, chart measure switching, exported records, client-name exclusion, and mobile layout. Render and visually review the PDF.
+8. Add a task-view page that follows the supplied BI-view themes while keeping unsupported measures visibly marked as pending definitions.
+9. Test the embedded data and filtered totals against the source workbook. Check empty selections, reset, chart measure switching, exported records, client-name exclusion, task-view KPIs, and mobile layout. Render and visually review the PDF.
 
 No formula cells, hidden worksheets, comments, hyperlinks, workbook external links, or macro/connection/embedded-object package entries were found. This is an inspection result, not a comprehensive security certification.
 
@@ -35,6 +36,11 @@ No formula cells, hidden worksheets, comments, hyperlinks, workbook external lin
 | Reporting-date mismatch | Invoice year/month differs from reporting year/month | A consistency check, not proof of complete period coverage. |
 | Negative delivery charges | Records where `DeliveryCharge < 0` | Review items retained as supplied. |
 | Sale price below cost | Records where `SalePrice < CostPrice` | Not a calculation of net loss or margin. |
+| Average sales / month | Selection total divided by distinct `ReportingMonth` values present | Descriptive monthly average; no missing-period imputation. |
+| Latest-year sales | Selection total for the latest year represented after filtering | A YTD-style card for the supplied period, not current-year live YTD. |
+| Trailing 12 months | Sum of the latest 12 chronological `InvoiceDate` months represented | Uses the source's latest 12 months; no future refresh. |
+| High-value sales | Sum of rows where `SalePrice >= 100000` | Threshold is a documented portfolio convention, not a supplied business rule. |
+| Estimated total cost | `CostPrice + DeliveryCharge + SpareParts + LaborCost` | Assignment expression shown as a proxy; not an approved accounting measure. |
 
 ## Assignment requirements that remain unverified
 
@@ -44,6 +50,6 @@ Its example total-cost expression is `CostPrice + DeliveryCharge + SpareParts + 
 
 The brief's exercises to replace `Coupe` with `Convertible`, filter to Jaguar, or remove duplicates by invoice date and make were not applied to the published dataset. They would change the original data and could discard valid records. A business-approved cleaning rule would be needed before treating these exercises as production transformations.
 
-The new dashboard applies the three filters together before aggregation. Its largest-sales table is sorted by `SalePrice` descending, then invoice date, and shows up to eight rows. Export selection includes all selected rows. Displayed figures are rounded, with more precise values available on hover.
+The new dashboard applies the three filters together before aggregation. Its largest-sales table is sorted by `SalePrice` descending, then invoice date, and shows up to eight rows. Export selection includes all selected rows. Displayed figures are rounded, with more precise values available on hover. The Task views tab implements the supported assignment themes from the uploaded BI reference and explicitly leaves sales variance, formal margin, targets, and customer-level views pending a business definition or non-public fields.
 
 The new browser dashboard has been tested. An original Power BI model would still be needed to verify any original DAX measures, relationships, or refresh behavior. The new PDF is a static snapshot of the default, unfiltered selection.
