@@ -10,8 +10,9 @@ Download [`index.html`](index.html) and open it in a browser. GitHub displays HT
 - Use **Export selection** to download all selected records, including all 15 public columns. It is disabled when the selection is empty.
 - Use **Reset filters** to restore the full dataset and default chart measure.
 - Use **Print / PDF** for a static snapshot of the current selection.
+- Switch to **Task views** for the pending assignment analysis: monthly trend and moving average, annual growth, top-model ranking, vehicle/country mix, price distribution, and sale value versus the documented total-cost proxy.
 
-The largest-sales table shows at most eight selected rows. It is not the full export. On narrow screens the table can scroll horizontally.
+The largest-sales table shows at most eight selected rows. It is not the full export. On narrow screens the table can scroll horizontally. The task view deliberately labels metrics that need a business definition, such as profit margin and sales variance, instead of presenting them as verified KPIs.
 
 ## Files
 
@@ -20,6 +21,7 @@ The largest-sales table shows at most eight selected rows. It is not the full ex
 | [`index.html`](index.html) | Ready-to-open interactive dashboard |
 | [`src/dashboard.html`](src/dashboard.html) | Editable HTML/CSS/JavaScript template with a data placeholder |
 | [`screenshots/automobile-overview.png`](screenshots/automobile-overview.png) | Default, unfiltered dashboard preview |
+| [`screenshots/automobile-task-views.png`](screenshots/automobile-task-views.png) | Assignment task-view preview |
 | [`exports/automobile-dashboard.pdf`](exports/automobile-dashboard.pdf) | Two-page static snapshot of the default selection |
 
 To rebuild after reviewing a change to the CSV or template:
@@ -39,7 +41,7 @@ The original attachment named `Automobile Dashboard Analysis.pdf` is an eight-pa
 
 ## Definitions and validation
 
-Recorded sale value is the sum of `SalePrice`. Average sale price is that sum divided by selected row count. Currency and discount treatment are unspecified. Record count is not a verified count of unique vehicles or invoices.
+Recorded sale value is the sum of `SalePrice`. Average sale price is that sum divided by selected row count. Task-view average sales per month divides the selection total by the number of reporting months represented; latest-year sales use the latest year in the filtered selection; trailing sales use the latest 12 chronological source months. High-value sales use a transparent `SalePrice >= 100000` threshold. The total-cost comparison uses the assignment's expression `CostPrice + DeliveryCharge + SpareParts + LaborCost` and is labelled a proxy. Currency and discount treatment are unspecified. Record count is not a verified count of unique vehicles or invoices.
 
 Browser checks reconciled default totals, individual and combined filters, and all embedded source cells against the original workbook. Empty states, reset, count-mode charts, selected-record export, client-name exclusion, mobile width, and browser errors were checked. The PDF was rendered and visually inspected. Data-quality observations remain visible rather than being silently corrected. See [methodology](../docs/methodology.md) for definitions.
 

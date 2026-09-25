@@ -8,6 +8,8 @@ Download `dashboards/index.html` using GitHub's **Download raw file** button, th
 
 ![Automobile dashboard overview](dashboards/screenshots/automobile-overview.png)
 
+![Automobile dashboard task views](dashboards/screenshots/automobile-task-views.png)
+
 This dashboard was newly built from the supplied workbook during portfolio preparation. The original PDF named `Automobile Dashboard Analysis.pdf` contains unrelated retail visuals and is excluded. The new implementation uses HTML, CSS, and JavaScript; it is not a Power BI model or evidence that the assignment's DAX exercises were completed.
 
 ## Dashboard features
@@ -17,12 +19,13 @@ This dashboard was newly built from the supplied workbook during portfolio prepa
 - Inspect total and average recorded sale prices, record counts, and data-quality observations.
 - View the eight largest selected sales and export all selected rows as CSV.
 - Reset filters or print the current selection to PDF.
+- Open **Task views** for the pending assignment page: monthly and cumulative-style trend context, moving average, annual growth, model ranks, type/country mix, price histogram, and the documented total-cost proxy.
 
 ## Business questions
 
 The supplied assignment brief asks how automobile sales vary across brands, countries, and time, and how the data could support inventory and sales decisions. The available fields support descriptive comparisons of recorded sale prices, makes, models, countries, and vehicle types.
 
-The brief also asks about DAX, data preparation, and visual design. These are assignment requirements, not evidence that those tasks were completed. Budget, target, pipeline, region, and product-category fields are absent from the automobile workbook.
+The brief also asks about DAX, data preparation, and visual design. These are assignment requirements, not evidence that those tasks were completed. Budget, target, pipeline, region, and product-category fields are absent from the automobile workbook. The task-view page implements only metrics that can be traced to supplied fields and labels margin, variance, target, and customer-level work as pending definitions or unavailable public fields.
 
 ## Verified dataset summary
 
